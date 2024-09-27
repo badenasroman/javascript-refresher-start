@@ -132,11 +132,23 @@
 // }
 // Control Structure: controls which code is executed ////////
 
+// Functions as values ///////////
 function handleTimeout() {
-  console.log("Time out!");
+  console.log("Time out...1...!");
 }
 
 const handleTimeout2 = () => {
-  console.log("Time out!");
+  console.log("Time out...2...!");
 };
-setTimeout(() => {});
+setTimeout(handleTimeout, 3000);
+setTimeout(handleTimeout2, 3000);
+setTimeout(() => {
+  console.log("Time out...3...!");
+}, 3000);
+
+function greeter(greetFn) {
+  greetFn();
+}
+
+greeter(() => console.log("Hi Norman!!!"));
+// Functions as values ///////////
